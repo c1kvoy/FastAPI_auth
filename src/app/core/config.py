@@ -19,4 +19,14 @@ class Settings(BaseSettings):
         env_file = f"{BASE_DIR}/env"
 
 
+class AuthSettings(BaseSettings):
+    private_key_path: Path = BASE_DIR / "certs" / "jwt-private.pem"
+    public_key_path: Path = BASE_DIR / "certs" / "jwt-public.pem"
+
+
+class Settings(BaseSettings):
+    db: Settings = Settings()
+    auth: AuthSettings = AuthSettings()
+
+
 settings = Settings()

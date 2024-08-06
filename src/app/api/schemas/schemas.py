@@ -18,3 +18,7 @@ class UserInDBSchema(BaseModel):
     username: str
     email: str
     hashed_password: str
+
+class TokenInfo(BaseModel):
+    access_token: str
+    token_type: str
